@@ -19,6 +19,14 @@
     return 2;
 }
 
+- (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section {
+    if (section == 0) {
+        return @"Cells that use a XIB";
+    } else {
+        return @"Cells that don't use a XIB";
+    }
+}
+
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     NSString *identifier = indexPath.section == 0 ? @"BasicCell" : @"NonNibCell";
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:identifier forIndexPath:indexPath];
